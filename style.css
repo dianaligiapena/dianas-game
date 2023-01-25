@@ -187,5 +187,91 @@ body {
     }
     
     #canvas {
-        border: 2px solid black;
+        border: 2px solid #202020bf;
+        border-radius: 48px;
+       
+    }
+
+    #lowerleft {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #dividerlow {
+        width: 320px;
+    }
+
+    #buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        height: 130px;
+    }
+
+    #start-button {
+        padding: 10px 10px;
+        margin: 7px;
+        font-size: 15px;
+        text-align:center;
+
+        background-color: #fa9186;
+        color: rgb(71, 17, 17);
+        
+        transition-duration: 0.3s;
+
+        border: 2px solid hsla(0, 41%, 53%, 0.567); 
+        border-radius: 48px;
+        border-width: 2px;
+    }
+
+    #start-button:hover {
+        background-color: #d5675d; 
+        border-color: #c14164;
+        color: hsl(0, 45%, 89%);
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    #word-input {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        /* border-color: #c14164; */
+        border: none;
+        background-color: #fa9186;
+        height: 30px;
+        width: 150px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    #word-input:hover {
+        background-color: #fc887d; 
+        border-color: #c14164;
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    #word-input[type=text]:focus {
+        outline: none;
+        transition: width 0.4s ease-in-out;
+        border: 1px solid hsl(0, 0%, 90%);
+        cursor: pointer;
+    }
+
+    #buttons p {
+        padding: 10px 10px;
+        /* border: 2px solid #c14164;
+        border-radius: 48px; */
+        margin: 10px;
+    }
+
+    #startedGame {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #time {
+        color: #b12a5b;
     }
