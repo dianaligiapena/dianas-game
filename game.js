@@ -2,10 +2,10 @@ let string = "Hello dear ";
 let running;
 const str = string.split("");
 const el = document.getElementById('cat-words');
-// (function animate2() {
-// str.length > 0 ? el.innerHTML += str.shift() : clearTimeout(running); 
-//  running = setTimeout(animate2, 60);
-// })();
+(function animate2() {
+str.length > 0 ? el.innerHTML += str.shift() : clearTimeout(running); 
+ running = setTimeout(animate2, 60);
+})();
 
 const myCanvas = document.querySelector('canvas');
 const ctx = myCanvas.getContext("2d");
@@ -74,7 +74,7 @@ function animate() {
 
     wordInput.value = '';
     ctx.clearRect(0,0,500,500);
-    ctx.font = ' bold 18px Verdana sans-serif'; 
+    ctx.font = ' bold 18px Verdana sans-serif '; 
     time = 5;
     win = false;
 
