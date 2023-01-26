@@ -1,6 +1,10 @@
 const startButton = document.getElementById("start-button");
 const startedGameDiv = document.getElementById("startedGame");
 
+let song = new Audio();                        // AUDIO
+song.src = "audio/nyancat.mp3" ;
+song.volume = 0.2 ;
+
 let string;
 
 string = `
@@ -187,6 +191,8 @@ function levelGame() {
 }
 
 function animate() {    
+    song.play();
+
     clearInterval(timeoutKittyCircle); 
     wordInput.value = '';
     ctx.clearRect(0,0,500,500);
