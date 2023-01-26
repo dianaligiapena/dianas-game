@@ -20,7 +20,7 @@ Each round begins when the song starts by displaying on your right side your tea
 --
 What you have to do is:-
 1. chose one laptop's passcode,-
-2. type it until the song stops (which will play less than 5 seconds).-
+2. type it before the song stops (which will play less than 5 seconds).-
 -
 If you succeed, one laptop will be unlocked.-
 The test is passed when you unlock all laptops.-
