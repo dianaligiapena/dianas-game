@@ -3,7 +3,34 @@ const startedGameDiv = document.getElementById("startedGame");
 
 let string;
 
-string = "abc"; // ----------------------- put string !!!!!!!
+string = `
+Hello, dear. -
+Meow you doin'?-
+Let me introduce myself. - - 
+I am Steve Paws, the international cat genius.-
+-
+I've heard that you and 4 colleagues of yours are looking for help to finish an Ironhack lab. -
+-
+Today I will provide you an opportunity to help your team and to bear witness to my amazing web development skills. 
+--
+In order to get this chance you will first have to pass a test designed by me and my associate, the charming Dancing Paws.
+--
+The test consists of 5 rounds. - - 
+Each round begins when the song starts by displaying on your right side your teams’ laptops and the passcodes that I will generate on their screens.
+--
+What you have to do is:-
+1. chose one laptop's passcode,-
+2. type it until the song stops (which will play less than 5 seconds).-
+-
+If you succeed, one laptop will be unlocked.-
+The test is passed when you unlock all laptops.-
+-
+One thing I forgot to tell you… Dancing Paws will try to draw your attention by dancing to the music around the laptops. And also by being really cute.
+--
+So, let's start the test. -
+It's meow or never.
+
+`;
 
 let running;
 const str = string.split("");
@@ -42,6 +69,7 @@ let level = 1;
 
 document.getElementById('start-button').onclick = () => { 
     startedGameDiv.style.visibility = "visible";
+    myCanvas.style.visibility = "visible";
     level = 1;
     levelGame();
     wordInput.focus();
