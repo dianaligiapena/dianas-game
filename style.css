@@ -60,13 +60,12 @@ body {
         align-items: center;
         height: 600px;
         margin-left: 30px;
+        margin: 20px;
     }    
 
 
 
 
-
- 
           
 
 
@@ -247,7 +246,7 @@ body {
     }
 
     #startedGame p {
-        width: 30px;  
+        width: 35px;  
         margin: 10px;   
         padding: 10px;
         border: 2px solid #c53c3c3d;
@@ -265,7 +264,7 @@ body {
         flex: 1;
         display: flex;
         justify-content: center;
-        height: 550px;
+        height: 600px;
     }   
     
 
