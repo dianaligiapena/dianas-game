@@ -98,40 +98,26 @@ let timeoutKittyCircle;
 
 //----------  FUNCTION: LEVEL
 function levelGame() {   
-    
     clearTimeout(gameTimeout);
     clearTimeout(winLoseId); 
     clearTimeout(levelTimeout);
     clearInterval(intervalId);
     clearInterval(timeoutKittyCircle);
-    
     time = 5;
     win = false;
-
     animate(); 
 }
 
 function animate() {   
-    // clearTimeout(gameTimeout);
-    // clearTimeout(winLoseId); 
-    // clearTimeout(levelTimeout);
-    // clearInterval(intervalId);
-
-    clearInterval(timeoutKittyCircle);
-
-    
-    
-
+    clearInterval(timeoutKittyCircle); 
     wordInput.value = '';
     ctx.clearRect(0,0,500,500);
     ctx.font = ' bold 18px Verdana sans-serif '; 
-    ctx.fillStyle = " #0a2c2f " ; //  #441121
-    
+    ctx.fillStyle = " #0a2c2f " ; //  #441121    
     win = false;
-
     wordsGame = getWords(words); // GET WORDS
 
-    if (level === 1) { // DRAWING 
+    if (level === 1) { // LEVEL 1 
         speed = 1 ;
         radius = 195 ;
         angle = 1 ;
@@ -180,7 +166,7 @@ function animate() {
         timeoutKittyCircle = setInterval( animateKittyCircle , 15 );
     };
 
-    if (level === 2) {
+    if (level === 2) { // LEVEL 2
         speed = 1 ;
         radius = 195 ;
         angle = 1 ;
@@ -234,7 +220,7 @@ function animate() {
         timeoutKittyCircle = setInterval( animateKittyCircle , 15 );
     };
 
-    if (level === 3) {
+    if (level === 3) { // LEVEL 3
         speed = 1 ;
         radius = 195 ;
         angle = 1 ;
@@ -283,7 +269,7 @@ function animate() {
         timeoutKittyCircle = setInterval( animateKittyCircle , 15 );
     };
 
-    if (level === 4) {
+    if (level === 4) { // LEVEL 4
         speed = 1 ;
         radius = 195 ;
         angle = 1 ;
@@ -332,7 +318,7 @@ function animate() {
         timeoutKittyCircle = setInterval( animateKittyCircle , 15 );
     };
 
-    if (level === 5) {
+    if (level === 5) { // LEVEL 5
         speed = 1 ;
         radius = 195 ;
         angle = 1 ;
@@ -378,12 +364,12 @@ function animate() {
             clearInterval(intervalId); }
     }, 1000 );
 
-    winLoseId = setTimeout( function() { // TIMEOUT THE MATCHING
+    winLoseId = setTimeout( function() { // TIMEOUT THE MATCHING VERIFICATION
         currentWordTyped = wordInput.value;
         win = matchWords(wordsGame,currentWordTyped);
     }, 5000 ); 
 
-    levelTimeout = setTimeout( function() { // TIMEOUT THE PLAYING / WIN / LOSE
+    levelTimeout = setTimeout( function() { // TIMEOUT THE PLAYING / WIN / LOSE VERIFICATION
         clearTimeout(winLoseId); 
         clearInterval(timeoutKittyCircle);
 
@@ -396,14 +382,17 @@ function animate() {
                 ctx.font = ' bold 18px Verdana sans-serif '; 
                 ctx.fillStyle = "beige" ; 
                 ctx.fillText("Going fuuur-ther!", myCanvas.width/2, myCanvas.height/2);
+                ctx.drawImage(catImg , 300 , 300 , cat.w * 2 , cat.h * 2 );
                 gameTimeout = setTimeout(levelGame, 1500);
             }
             else { // IF WON
                 ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
                 ctx.textAlign = "center";
-                ctx.font = ' bold 18px Verdana sans-serif '; 
-                ctx.fillStyle = "green" ; 
-                ctx.fillText("You passed the test! Congrats!", myCanvas.width/2, myCanvas.height/2);
+                ctx.font = ' bold 22px Verdana sans-serif '; 
+                ctx.fillStyle = " #051517 " ; 
+                ctx.fillText("You passed! Congrats!", myCanvas.width/2, myCanvas.height/2);
+                ctx.drawImage(catImg , 300 , 300 , cat.w * 2 , cat.h * 2 );
+                startedGameDiv.style.visibility = "hidden";
             };
         }
         else { // IF GAMEOVER
@@ -415,9 +404,16 @@ function animate() {
             
             ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
             ctx.textAlign = "center";
-            ctx.font = ' bold 18px Verdana sans-serif '; 
+            ctx.font = ' bold 20px Verdana sans-serif '; 
             ctx.fillStyle = " #8d282d " ; 
-            ctx.fillText("Didn't pass the test...", myCanvas.width/2, myCanvas.height/2);
+            ctx.fillText(" Didn't pass the test... ", myCanvas.width/2, myCanvas.height/2 - 50 );
+
+            ctx.font = ' bold 18px Verdana sans-serif '; 
+            ctx.fillText(" Dancing Paws is too irresistible! ", myCanvas.width/2, myCanvas.height/2 + 10 );
+           
+            ctx.drawImage(catImg , 300 , 300 , cat.w * 2 , cat.h * 2 );
+
+            startedGameDiv.style.visibility = "hidden";
         
         }
     }, 5250 );
