@@ -32,7 +32,7 @@ It's meow or never.
 
 `;
 
-let running;
+let running;                                      // RUNNING CATS WORDS
 const str = string.split("");
 const el = document.getElementById('cat-words');
 let i = string.length; 
@@ -56,8 +56,11 @@ let scrollY = 0;
         clearTimeout(running);
     }
     
-    running = setTimeout(writing, 60 ); /// 60
+    running = setTimeout(writing, 60 ); 
 })();
+
+
+
 
 const myCanvas = document.querySelector('canvas');
 const ctx = myCanvas.getContext("2d");
@@ -67,12 +70,53 @@ const wordInput = document.getElementById('word-input');
 
 let level = 1;
 
-document.getElementById('start-button').onclick = () => { 
+let steadyId;
+let goId;
+let startLevelGameId;
+
+document.getElementById('start-button').onclick = () => {    // CLICK  START  BUTTON
     startedGameDiv.style.visibility = "visible";
+    ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
     myCanvas.style.visibility = "visible";
     level = 1;
-    levelGame();
     wordInput.focus();
+    wordInput.value = '';
+    timeDisplay.innerHTML = '';
+
+    clearTimeout( steadyId );
+    clearTimeout( goId );
+    clearTimeout( startLevelGameId );
+
+    clearTimeout(gameTimeout);
+    clearTimeout(winLoseId); 
+    clearTimeout(levelTimeout);
+    clearInterval(intervalId);
+    clearInterval(timeoutKittyCircle);
+    time = 5;
+    win = false;
+
+    
+    ctx.clearRect(0,0,myCanvas.width,myCanvas.height);    //  PREPARE TO COUNTDOWN TO START - 3 SECONDS
+    
+    ctx.drawImage(catImg , 300 , 300 , cat.w * 2 , cat.h * 2 );
+    
+    ctx.textAlign = "center";
+    ctx.fillStyle = " #8d282d " ; 
+
+    ctx.font = ' bold 18px Verdana sans-serif '; 
+    ctx.fillText(" Ready? ", myCanvas.width/2, myCanvas.height/2 - 80 );
+
+    steadyId = setTimeout( () => {
+        ctx.font = ' bold 22px Verdana sans-serif '; 
+        ctx.fillText(" Steady... ", myCanvas.width/2, myCanvas.height/2 );
+    } , 1500 );
+
+    goId = setTimeout( () => {
+        ctx.font = ' bold 26px Verdana sans-serif '; 
+        ctx.fillText(" Go! ", myCanvas.width/2, myCanvas.height/2 + 90 );
+    } , 3000 );
+
+    startLevelGameId = setTimeout( levelGame , 4000 ); 
 };
 
 const catImg = new Image();
@@ -124,8 +168,13 @@ let newY; let newY2;
 
 let timeoutKittyCircle;
 
-//----------  FUNCTION: LEVEL
+//----------   FUNCTION : START GAME LEVEL ---------------//
 function levelGame() {   
+    
+    clearTimeout( steadyId );
+    clearTimeout( goId );
+    clearTimeout( startLevelGameId );
+
     clearTimeout(gameTimeout);
     clearTimeout(winLoseId); 
     clearTimeout(levelTimeout);
@@ -133,10 +182,11 @@ function levelGame() {
     clearInterval(timeoutKittyCircle);
     time = 5;
     win = false;
+    ctx.clearRect(0,0,500,500);
     animate(); 
 }
 
-function animate() {   
+function animate() {    
     clearInterval(timeoutKittyCircle); 
     wordInput.value = '';
     ctx.clearRect(0,0,500,500);
@@ -384,7 +434,7 @@ function animate() {
     };
 
     timeDisplay.innerHTML = time;
-    intervalId = setInterval( function () { // COUNTDOWN
+    intervalId = setInterval( function () { // -------- COUNTDOWN
         time--;
         timeDisplay.innerHTML = time;
         if (time <= 0) {
@@ -392,19 +442,24 @@ function animate() {
             clearInterval(intervalId); }
     }, 1000 );
 
-    winLoseId = setTimeout( function() { // TIMEOUT THE MATCHING VERIFICATION
+    winLoseId = setTimeout( function() { //  ----------- TIMEOUT THE MATCHING VERIFICATION
         currentWordTyped = wordInput.value;
         win = matchWords(wordsGame,currentWordTyped);
     }, 5000 ); 
 
-    levelTimeout = setTimeout( function() { // TIMEOUT THE PLAYING / WIN / LOSE VERIFICATION
+    levelTimeout = setTimeout( function() { // --------- TIMEOUT THE PLAYING / WIN / LOSE VERIFICATION
         clearTimeout(winLoseId); 
         clearInterval(timeoutKittyCircle);
 
+        clearTimeout( steadyId );
+        clearTimeout( goId );
+        clearTimeout( startLevelGameId );
+
         if (win) {
-            if (level < 5) { // IF PLAYING
+            if (level < 5) { //  -------------------- IF CONTINUE PLAYING
                 level++; 
                 
+                timeDisplay.innerHTML = '';
                 ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
                 ctx.textAlign = "center";
                 ctx.font = ' bold 18px Verdana sans-serif '; 
@@ -413,7 +468,9 @@ function animate() {
                 ctx.drawImage(catImg , 300 , 300 , cat.w * 2 , cat.h * 2 );
                 gameTimeout = setTimeout(levelGame, 1500);
             }
-            else { // IF WON
+            else { //  --------------------------- IF WON
+                timeDisplay.innerHTML = '';
+
                 ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
                 ctx.textAlign = "center";
                 ctx.font = ' bold 22px Verdana sans-serif '; 
@@ -423,7 +480,9 @@ function animate() {
                 startedGameDiv.style.visibility = "hidden";
             };
         }
-        else { // IF GAMEOVER
+        else { // -------------------------------- IF GAMEOVER
+            timeDisplay.innerHTML = '';
+
             clearTimeout(gameTimeout);
             clearTimeout(winLoseId); 
             clearTimeout(levelTimeout);
