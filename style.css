@@ -2,30 +2,6 @@ body {
     margin: 0;
     background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
     }
-    
-    
-    .columns-wrapper {
-        display: flex;
-    }
-    
-    #left-column {
-        flex: 1;
-        height: 600px;
-        margin-right: 20px;
-    }
-    
-    #right-column {
-        flex: 1;
-        height: 600px;
-        margin-right: 20px;
-    }
-    
-    #jobs-head {
-        max-height: 300px;
-        margin:0 auto;
-    }
-    
-    
     #menu {
         display: flex;
         flex-direction: row;
@@ -33,54 +9,103 @@ body {
         height: 120px;
         /* align-items: center; */
       justify-content: space-around;
-    }
-    
+    }    
     #menu img {
         max-height: 120px;
-    }
-    
+    }    
     #one-third {
         width: 33%;
         flex: 1 1 auto;    
         display: flex;
         align-items:center; 
-    }
+    }    
+    #game-title {
+        text-align: left;
+    }    
+    #game-title h2,h3 {
+        margin-top: 0px;
+        font-family: Arial, Helvetica, sans-serif;
     
+    }    
+    #game-title h2{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 26px;
+        font-weight: 100;
+    }
     #two-third {
         width: 67%;
         flex: 2 1 auto;
-    }
-    
-    
-    #pop-up {
-        width: 40%;
-        background-color: rgba(30 30 30 / 10%);
-        display: flex;
-        flex-direction: column;
-        margin:0 auto;
-        height: 850px;
-        padding: 10px;
-        border-radius: 25px;
-        margin-top: 100px;
-        box-shadow: 5px 3px #4c4c4c52; 
-        
-    }
-    
-    /* 
-    #button-rules {
-        width: 180px;
+    }  
+    #divider {
         height: 50px;
-        margin: auto;
-        border: 0px;
-        border-radius: 60px;
-        background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-        color: #c14164;
-        font-size: 15px;
+    }
+    #divider h3 {
         font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold; }*/
-    
-    
-    
+        font-size: 28px;
+        font-weight:200;
+        text-align: center;
+        margin-top: 50px;
+    }
+        
+
+
+    .columns-wrapper {
+        display: flex;
+        flex:1;
+        justify-content: space-between;
+        align-items: center;
+    }    
+    #left-middle-column {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        margin: 10px;
+    }    
+    #right-column {
+        flex: 1;
+        display: flex;
+        /* justify-content: center;
+        align-items: center; */
+        height: 550px;
+        margin-right: 30px;
+    }   
+          
+
+
+    #jobs-panel {
+        height: 400px;
+        flex:1;
+        flex-direction: column;
+        display: flex;
+        text-align: center;
+        align-content: space-between;
+    }
+    #jobs-head {
+        max-height: 300px;
+        margin:0 auto;
+    }    
+    #jobs-panel > h1,h2,h3 {
+        margin-bottom: 0px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }    
+    #jobs-panel h1 {
+        font-size: 24px;    
+        font-weight: 600;
+        margin: 10px auto 0px auto;    
+    }    
+    #jobs-panel h2 {
+        font-size: 20px;    
+        font-weight: 200;
+        margin: 0px auto;    
+    }
+    #jobs-panel h3 {
+        font-size: 20px;    
+        font-weight: 600;
+        margin: 10px auto;    
+    }
     #cat-title {
         margin-left: auto;
         margin-right: auto;
@@ -89,180 +114,134 @@ body {
         font-style:italic;
     }
     
-    #nameplate {
+    
+    
+
+
+
+    #middle {
         display: flex;
-        
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        flex:1;
+        margin-left: 10px;
     }
-    
-    #jobs-panel {
-        height: 400px;
-    }
-    
-    #jobs-panel > h1,h2,h3 {
-        margin-bottom: 0px;
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    #jobs-panel h1 {
-        font-size: 24px;    
-        font-weight: 600;
-        margin: 10px auto 0px auto;
-    
-    }
-    
-    #jobs-panel h2 {
-        font-size: 20px;    
-        font-weight: 200;
-        margin: 0px auto;
-    
-    }
-    
-    #jobs-panel h3 {
-        font-size: 20px;    
-        font-weight: 600;
-        margin: 10px auto;
-    
-    }
-    
-    
-    #message {
-        display: flex;
-    }
-    
     #cat-words {
-        width: 50%;
+        width: 80%;
         float:left;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 18px;
+        font-size: 16px;
+
+        /* text-align: justify;
+        text-justify: inter-word; */
+        color: white;
+
+
         height: 400px;
-        padding: 15px;
+        padding: 30px;
+        margin: 40px;
+
         border-radius: 30px;
         border: 2px solid #e4e4e438;
-        color: white;
+
         flex:1;
         box-shadow: 2px 3px rgba(173, 173, 173, 0.675);
+        
+        display: block;/* or inline-block */
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+
+        overflow-y: scroll;
        
-    }
-    
-    #jobs-panel {
-        flex:1;
-        flex-direction: column;
-        display: flex;
-        text-align: center;
-        align-content: space-between;
-    }
-    
-    #divider {
-        height: 150px;
-    }
-    
-    
-    #game-title {
-        text-align: left;
-    }
-    
-    #game-title h2,h3 {
-        margin-top: 0px;
-        font-family: Arial, Helvetica, sans-serif;
-    
-    }
-    
-    #game-title h2{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 26px;
-        font-weight: 100;
-    }
-    
-    #divider h3 {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 28px;
-        font-weight:200;
-        text-align: center;
-        margin-top: 50px;
-    }
-    
-    #pop-up {
-        display: none;
-    }
-    
-    #canvas {
-        border: 2px solid #202020bf;
-        border-radius: 48px;
-       
+      
+
+
+        max-height: 20em;
+        line-height: 1.5em;
+
     }
 
-    #lowerleft {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+    #cat-words::-webkit-scrollbar {
+        width: 14px;
     }
 
-    #dividerlow {
-        width: 320px;
+    #cat-words::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        border-radius: 150px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
+
+    #cat-words::-webkit-scrollbar-thumb {
+        border-radius: 150px;
+        border: 4px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+
+    
+
+
+
+
+
+
+    
 
     #buttons {
         display: flex;
+        flex:1;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items:center;
-        height: 130px;
     }
-
     #start-button {
-        padding: 10px 10px;
-        margin: 7px;
+        padding: 10px 40px;
+        margin: 10px;
+        margin-top: 20px;
         font-size: 15px;
         text-align:center;
 
         background-color: #fa9186;
-        color: rgb(71, 17, 17);
+        color: #9b3030;
         
         transition-duration: 0.3s;
 
-        border: 2px solid hsla(0, 41%, 53%, 0.567); 
+        border: 2px solid rgba(242, 104, 92, 0.477);
         border-radius: 48px;
         border-width: 2px;
-    }
 
+        visibility: hidden;
+    }
     #start-button:hover {
-        background-color: #d5675d; 
-        border-color: #c14164;
-        color: hsl(0, 45%, 89%);
+        background-color: #fd8b7f;
+        border-color: rgba(196, 94, 94, 0.905); 
+        color: rgb(153, 65, 65);
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
 
     #word-input {
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-        /* border-color: #c14164; */
         border: none;
         background-color: #fa9186;
         height: 30px;
         width: 150px;
         border-radius: 12px;
         text-align: center;
+        color: #9b3030;
     }
-
     #word-input:hover {
         background-color: #fc887d; 
-        border-color: #c14164;
+        border-color: none;
         color: white;
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
-
     #word-input[type=text]:focus {
         outline: none;
         transition: width 0.4s ease-in-out;
-        border: 1px solid hsl(0, 0%, 90%);
+        border: 0.5px hsl(0, 36%, 36%);
         cursor: pointer;
-    }
-
-    #buttons p {
-        padding: 10px 10px;
-        /* border: 2px solid #c14164;
-        border-radius: 48px; */
-        margin: 10px;
+        
     }
 
     #startedGame {
@@ -270,8 +249,34 @@ body {
         flex-direction: row;
         align-items: center;
         justify-content: center;
+
+        visibility: hidden;
+    }
+    #startedGame p {
+        display: flex;
+        align-items: center;
+        padding: 10px 10px;
+        /* border: 2px solid #c14164;
+        border-radius: 48px; */
+        margin: 10px;
+    }
+    #time {
+        margin: 5px;
+        color: #9b3030;
     }
 
-    #time {
-        color: #b12a5b;
+
+
+
+    
+
+    #canvas {
+        border: 2px solid hwb(0 44% 55% / 0.749);
+        border-radius: 48px;
+        background-color: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+        
     }
+
+      /* #pop-up {
+        display: none;
+    } */
