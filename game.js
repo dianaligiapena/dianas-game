@@ -1,9 +1,16 @@
-const startButton = document.getElementById("start-button");
+
 const startedGameDiv = document.getElementById("startedGame");
 
-let song = new Audio();                        // AUDIO
+const song = new Audio();                        // AUDIO
 song.src = "audio/nyancat.mp3" ;
 song.volume = 0.2 ;
+
+const typingSound = document.createElement('audio');
+typingSound.setAttribute('src', 'audio/TypingSound Effect.mp3');
+typingSound.setAttribute('autoplay', 'autoplay');
+typingSound.volume = 0.5 ;
+typingSound.play(); 
+
 
 let string;
 
@@ -13,21 +20,20 @@ Meow you doin'?-
 Let me introduce myself. - - 
 I am Steve Paws, the international cat genius.-
 -
-I've heard that you and 4 colleagues of yours are looking for help to finish an Ironhack lab. -
+I've heard that you are looking for help to finish an Ironhack lab. -
 -
-Today I will provide you an opportunity to help your team and to bear witness to my amazing web development skills. 
+Today I will provide you an opportunity to help you and to bear witness to my amazing web development skills. 
 --
 In order to get this chance you will first have to pass a test designed by me and my associate, the charming Dancing Paws.
 --
-The test consists of 5 rounds. - - 
-Each round begins when the song starts by displaying on your right side your teams’ laptops and the passcodes that I will generate on their screens.
---
-What you have to do is:-
-1. chose one laptop's passcode,-
-2. type it before the song stops (which will play less than 5 seconds).-
+How it works: -
 -
-If you succeed, one laptop will be unlocked.-
-The test is passed when you unlock all laptops.-
+The test consists of 5 rounds and 5 laptops to unlock. -
+-
+Each round the music starts and you have 5 seconds to type ONE of the passwords generated on the laptops’ screens. -
+-
+If you succeed, you go to the next round and unlock one of the remaining laptops. -
+You pass the test when all the laptops are unlocked.-
 -
 One thing I forgot to tell you… Dancing Paws will try to draw your attention by dancing to the music around the laptops. And also by being really cute.
 --
@@ -36,15 +42,17 @@ It's meow or never.
 
 `;
 
+
 let running;                                      // RUNNING CATS WORDS
 const str = string.split("");
 const el = document.getElementById('cat-words');
 let i = string.length; 
 let scrollY = 0;
 (function writing() {
+
     if ( i >= 0 ) {
         i--;
-        scrollY += 50 ;
+        scrollY += 1 ;
         el.scrollTo( 0 , scrollY );
     }
 
@@ -60,7 +68,7 @@ let scrollY = 0;
         clearTimeout(running);
     }
     
-    running = setTimeout(writing, 60 ); 
+    running = setTimeout(writing, 23 ); 
 })();
 
 
@@ -71,6 +79,7 @@ const ctx = myCanvas.getContext("2d");
 
 const timeDisplay = document.getElementById('time');
 const wordInput = document.getElementById('word-input');
+const startButton = document.getElementById('start-button');
 
 let level = 1;
 
@@ -79,6 +88,7 @@ let goId;
 let startLevelGameId;
 
 document.getElementById('start-button').onclick = () => {    // CLICK  START  BUTTON
+    startButton.innerHTML = 'restart'
     startedGameDiv.style.visibility = "visible";
     ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
     myCanvas.style.visibility = "visible";
@@ -126,7 +136,7 @@ document.getElementById('start-button').onclick = () => {    // CLICK  START  BU
 const catImg = new Image();
 catImg.src = 'images/cat5.png';
 
-let laptopImg = new Image();
+const laptopImg = new Image();
 laptopImg.src = 'images/laptop.png';
 
 //----------   variables
@@ -236,11 +246,16 @@ function animate() {
                 word.x = laptop.x + laptop.w / 4 + 5 ;
                 word.y = laptop.y + laptop.h / 3 + 5 ;    
                 let textWidth = ctx.measureText(wordsGame[i]).width;
-                if (textWidth > laptop.w - 45 ) {
-                   ctx.font = " bold 9px  Verdana";
-                   word.x -= 10 ;
-                   word.y -= 2 ;
-                }    
+                if (textWidth > laptop.w - 35 ) {
+                    ctx.font = " bold 9px  Verdana ";
+                    word.x -= 10 ;
+                    word.y -= 2 ;
+                 }
+                 else if ( textWidth > laptop.w - 44   ) {
+                     ctx.font = " bold 11px  Verdana";
+                     word.x -= 8 ;
+                     word.y -= 2 ;
+                  }
                 ctx.textAlign = "start";   
                 ctx.fillText( wordsGame[i] , word.x  , word.y );
                 
@@ -289,11 +304,16 @@ function animate() {
                 word.x = laptop.x + laptop.w / 4 + 5 ;
                 word.y = laptop.y + laptop.h / 3 + 5 ;    
                 let textWidth = ctx.measureText(wordsGame[i]).width;
-                if (textWidth > laptop.w - 45 ) {
-                   ctx.font = " bold 9px  Verdana";
-                   word.x -= 10 ;
-                   word.y -= 2 ;
-                }    
+                if (textWidth > laptop.w - 35 ) {
+                    ctx.font = " bold 9px  Verdana ";
+                    word.x -= 10 ;
+                    word.y -= 2 ;
+                 }
+                 else if ( textWidth > laptop.w - 44   ) {
+                     ctx.font = " bold 11px  Verdana";
+                     word.x -= 8 ;
+                     word.y -= 2 ;
+                  } 
                 ctx.textAlign = "start";   
                 ctx.fillText( wordsGame[i] , word.x  , word.y );
                    
@@ -339,11 +359,16 @@ function animate() {
                 word.x = laptop.x + laptop.w / 4 + 5 ;
                 word.y = laptop.y + laptop.h / 3 + 5 ;    
                 let textWidth = ctx.measureText(wordsGame[i]).width;
-                if (textWidth > laptop.w - 45 ) {
-                   ctx.font = " bold 9px  Verdana";
-                   word.x -= 10 ;
-                   word.y -= 2 ;
-                }    
+                if (textWidth > laptop.w - 35 ) {
+                    ctx.font = " bold 9px  Verdana ";
+                    word.x -= 10 ;
+                    word.y -= 2 ;
+                 }
+                 else if ( textWidth > laptop.w - 44   ) {
+                     ctx.font = " bold 11px  Verdana";
+                     word.x -= 8 ;
+                     word.y -= 1 ;
+                  }
                 ctx.textAlign = "start";   
                 ctx.fillText( wordsGame[i] , word.x  , word.y );    
                 
@@ -388,11 +413,16 @@ function animate() {
                 word.x = laptop.x + laptop.w / 4 + 5 ;
                 word.y = laptop.y + laptop.h / 3 + 5 ;    
                 let textWidth = ctx.measureText(wordsGame[i]).width;
-                if (textWidth > laptop.w - 45 ) {
-                   ctx.font = " bold 9px  Verdana";
-                   word.x -= 10 ;
-                   word.y -= 2 ;
-                }    
+                if (textWidth > laptop.w - 35 ) {
+                    ctx.font = " bold 9px  Verdana ";
+                    word.x -= 10 ;
+                    word.y -= 2 ;
+                 }
+                 else if ( textWidth > laptop.w - 44   ) {
+                     ctx.font = " bold 11px  Verdana";
+                     word.x -= 8 ;
+                     word.y -= 1 ;
+                  } 
                 ctx.textAlign = "start";   
                 ctx.fillText( wordsGame[i] , word.x  , word.y );    
                 
@@ -428,11 +458,16 @@ function animate() {
             word.x = laptop.x + laptop.w / 4 + 5 ;
             word.y = laptop.y + laptop.h / 3 + 5 ;    
             let textWidth = ctx.measureText(wordsGame[0]).width;
-            if (textWidth > laptop.w - 45 ) {
-                ctx.font = " bold 9px  Verdana";
+            if (textWidth > laptop.w - 35 ) {
+                ctx.font = " bold 9px  Verdana ";
                 word.x -= 10 ;
                 word.y -= 2 ;
-            }    
+             }
+             else if ( textWidth > laptop.w - 44   ) {
+                 ctx.font = " bold 11px  Verdana";
+                 word.x -= 8 ;
+                 word.y -= 1 ;
+              }
             ctx.textAlign = "start";   
             ctx.fillText( wordsGame[0] , word.x  , word.y );              
         };    
