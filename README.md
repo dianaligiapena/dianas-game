@@ -10,7 +10,7 @@ How you play Dancing Paws 🕹 :
 
 The game consists of 5 rounds and 5 laptops to unlock. 
 Each round you have to unlock one laptop by typing one password - you choose which laptop to unlock (or which password you will choose to type). 
-You have time to do starting when the music begins to play and until it stops playing - and that is 5 seconds.
+You have time to do that starting when the music begins to play and until it stops playing - and that is 5 seconds.
 
 
 
