@@ -138,7 +138,7 @@ body {
         border-radius: 30px;
         border: 2px solid #e4e4e438;
 
-        flex:1;
+        /* flex:1; */
         box-shadow: 2px 3px rgba(173, 173, 173, 0.675);
         
         display: block;
@@ -269,7 +269,7 @@ body {
     
 
     #canvas {
-        border: 2px solid hwb(0 44% 55% / 0.749);
+        border: 4px solid rgba(189, 182, 182, 0.749);
         border-radius: 48px;
         background-color: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
         
