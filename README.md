@@ -1,4 +1,4 @@
-# dianas-game
+# Dancing Paws
 
 Why Dancing Paws 🐈 :
 
